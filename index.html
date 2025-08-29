@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilingual Infographic: Metacognition as Computation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* bg-slate-50 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 260px;
+        }
+        .meta-level-box {
+            border: 2px dashed #374c80; /* slate-700 */
+        }
+        .base-level-box {
+            border: 2px solid #003f5c; /* custom dark blue */
+        }
+        .icon-container span {
+            font-size: 1.75rem; /* 28px */
+            line-height: 1;
+        }
+        .lang-btn {
+            transition: all 0.2s ease-in-out;
+        }
+        .lang-btn.active {
+            background-color: #003f5c;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
+        }
+        [data-lang], [data-lang-inline], [data-lang-flex], [data-lang-grid] { display: none; }
+        [data-lang].active { display: block; }
+        [data-lang-inline].active { display: inline; }
+        [data-lang-flex].active { display: flex; }
+        [data-lang-grid].active { display: grid; }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <div id="language-switcher" class="flex justify-end items-center mb-6 space-x-2">
+            <button class="lang-btn active font-semibold py-2 px-4 rounded-full border border-slate-300 bg-white" data-target-lang="en">EN</button>
+            <button class="lang-btn font-semibold py-2 px-4 rounded-full border border-slate-300 bg-white" data-target-lang="ru">RU</button>
+            <button class="lang-btn font-semibold py-2 px-4 rounded-full border border-slate-300 bg-white" data-target-lang="zh">ZH</button>
+        </div>
+
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#003f5c] mb-3">
+                <span data-lang="en" class="active">Metacognition as Computation</span>
+                <span data-lang="ru">Метапознание как вычисление</span>
+                <span data-lang="zh">作为计算的元认知</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600">
+                <span data-lang="en" class="active">A Reflexive Architecture for Artificial Consciousness</span>
+                <span data-lang="ru">Рефлексивная архитектура искусственного сознания</span>
+                <span data-lang="zh">人工意识的反思性架构</span>
+            </p>
+        </header>
+
+        <main>
+            <section id="challenge" class="mb-20 text-center">
+                <h2 class="text-xl font-semibold text-slate-800 mb-3">
+                    <span data-lang="en" class="active">The Fundamental Challenge</span>
+                    <span data-lang="ru">Фундаментальный вызов</span>
+                    <span data-lang="zh">根本挑战</span>
+                </h2>
+                <p class="text-2xl md:text-3xl font-bold text-[#003f5c] mb-4">
+                    <span data-lang="en" class="active">Bridging the Conceptual Gap</span>
+                    <span data-lang="ru">Преодоление концептуального разрыва</span>
+                    <span data-lang="zh">弥合概念鸿沟</span>
+                </p>
+                <p class="text-base md:text-lg max-w-3xl mx-auto text-slate-500">
+                    <span data-lang="en" class="active">Consciousness research is divided between philosophical descriptions and computational models. A formal, executable bridge between these two approaches is needed.</span>
+                    <span data-lang="ru">Исследования сознания разделены на философские описания и вычислительные модели. Необходим формальный, исполняемый мост между этими двумя подходами.</span>
+                    <span data-lang="zh">意识研究分为哲学描述和计算模型。需要在这两种方法之间建立一个正式的、可执行的桥梁。</span>
+                </p>
+            </section>
+
+            <section id="pillars" class="mb-16">
+                <h2 class="text-2xl font-bold text-center mb-10 text-slate-800">
+                    <span data-lang="en" class="active">Two Fundamental Paradigms</span>
+                    <span data-lang="ru">Две фундаментальные парадигмы</span>
+                    <span data-lang="zh">两大基本范式</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 border border-slate-200 h-full">
+                        <h3 class="text-xl font-semibold text-[#003f5c] mb-4 text-center">
+                            <span data-lang="en" class="active">1. Theory of Functional Systems (TFS)</span>
+                            <span data-lang="ru">1. Теория функциональных систем (ТФС)</span>
+                            <span data-lang="zh">1. 功能系统理论 (TFS)</span>
+                        </h3>
+                        <p class="text-center text-slate-500 mb-6 text-sm">
+                            <span data-lang="en" class="active">P.K. Anokhin's cybernetic model describing purposeful behavior as a self-organizing cycle.</span>
+                            <span data-lang="ru">Кибернетическая модель П.К. Анохина, описывающая целенаправленное поведение как самоорганизующийся цикл.</span>
+                            <span data-lang="zh">P.K. Anokhin 的控制论模型，将有目的的行为描述为一个自组织循环。</span>
+                        </p>
+                        <div class="space-y-3 flex flex-col items-center">
+                            <div class="border border-slate-300 bg-slate-50 p-3 rounded-md w-full max-w-sm text-center text-sm">
+                                <strong data-lang="en" class="active">Afferent Synthesis:</strong>
+                                <strong data-lang="ru">Афферентный синтез:</strong>
+                                <strong data-lang="zh">传入综合:</strong>
+                                <span data-lang="en" class="active"> Data Integration</span>
+                                <span data-lang="ru"> Интеграция данных</span>
+                                <span data-lang="zh"> 数据整合</span>
+                            </div>
+                            <div class="text-2xl text-slate-400">&#129047;</div>
+                            <div class="border border-slate-300 bg-slate-50 p-3 rounded-md w-full max-w-sm text-center text-sm">
+                                <strong data-lang="en" class="active">Action-Result Acceptor:</strong>
+                                <strong data-lang="ru">Акцептор результата действия:</strong>
+                                <strong data-lang="zh">行动结果受体:</strong>
+                                <span data-lang="en" class="active"> Result Prediction</span>
+                                <span data-lang="ru"> Предсказание результата</span>
+                                <span data-lang="zh"> 结果预测</span>
+                            </div>
+                            <div class="text-2xl text-slate-400">&#129047;</div>
+                            <div class="border border-slate-300 bg-slate-50 p-3 rounded-md w-full max-w-sm text-center text-sm">
+                                <strong data-lang="en" class="active">Reverse Afferentation:</strong>
+                                <strong data-lang="ru">Обратная афферентация:</strong>
+                                <strong data-lang="zh">反向传入:</strong>
+                                <span data-lang="en" class="active"> Comparing result with prediction</span>
+                                <span data-lang="ru"> Сравнение результата с предсказанием</span>
+                                <span data-lang="zh"> 将结果与预测进行比较</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 border border-slate-200 h-full">
+                        <h3 class="text-xl font-semibold text-[#003f5c] mb-4 text-center">
+                            <span data-lang="en" class="active">2. Computational Reflection</span>
+                            <span data-lang="ru">2. Вычислительная рефлексия</span>
+                            <span data-lang="zh">2. 计算反思</span>
+                        </h3>
+                        <p class="text-center text-slate-500 mb-6 text-sm">
+                            <span data-lang="en" class="active">A principle that allows a system to analyze and modify its own computational processes.</span>
+                            <span data-lang="ru">Принцип, позволяющий системе анализировать и модифицировать собственные вычислительные процессы.</span>
+                            <span data-lang="zh">允许系统分析和修改其自身计算过程的原则。</span>
+                        </p>
+                        <div class="flex flex-col items-center justify-center">
+                            <div class="meta-level-box bg-slate-50 p-4 rounded-lg w-full max-w-sm text-center">
+                                <p class="font-semibold text-lg text-[#374c80]">
+                                    <span data-lang="en" class="active">Meta-level</span>
+                                    <span data-lang="ru">Мета-уровень</span>
+                                    <span data-lang="zh">元层面</span>
+                                </p>
+                                <p class="text-sm text-slate-500 mb-4">
+                                    <span data-lang="en" class="active">Reasoning about system behavior</span>
+                                    <span data-lang="ru">Рассуждение о поведении системы</span>
+                                    <span data-lang="zh">对系统行为的推理</span>
+                                </p>
+                                <div class="flex flex-col items-center space-y-4">
+                                    <div class="text-center icon-container">
+                                        <span title="Introspection">&#128269;</span>
+                                        <p class="text-sm font-medium text-slate-600">
+                                            <span data-lang="en" class="active">Introspection</span>
+                                            <span data-lang="ru">Интроспекция</span>
+                                            <span data-lang="zh">内省</span>
+                                        </p>
+                                    </div>
+                                    <div class="text-center icon-container">
+                                        <span title="Intercession">&#9998;</span>
+                                        <p class="text-sm font-medium text-slate-600">
+                                            <span data-lang="en" class="active">Intercession</span>
+                                            <span data-lang="ru">Интерцессия</span>
+                                            <span data-lang="zh">干预</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-4xl my-2 text-slate-400">&#11107;</div>
+                            <div class="base-level-box p-4 rounded-lg w-full max-w-sm text-center">
+                                <p class="font-semibold text-lg text-[#003f5c]">
+                                    <span data-lang="en" class="active">Base-level</span>
+                                    <span data-lang="ru">Базовый уровень</span>
+                                    <span data-lang="zh">基础层面</span>
+                                </p>
+                                <p class="text-sm text-slate-500">
+                                    <span data-lang="en" class="active">Sensorimotor Behavior</span>
+                                    <span data-lang="ru">Сенсомоторное поведение</span>
+                                    <span data-lang="zh">感觉运动行为</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="synthesis" class="mb-20">
+                 <h2 class="text-2xl font-bold text-center mb-4 text-slate-800">
+                    <span data-lang="en" class="active">Synthesis: The Reflexive Cycle of Consciousness</span>
+                    <span data-lang="ru">Синтез: Рефлексивный цикл сознания</span>
+                    <span data-lang="zh">综合：意识的反思循环</span>
+                 </h2>
+                 <p class="text-center text-slate-500 mb-10 max-w-3xl mx-auto">
+                    <span data-lang="en" class="active">Consciousness is modeled as a continuous recursive process: the system observes its behavior (introspection) and corrects it (intercession) to achieve a goal.</span>
+                    <span data-lang="ru">Сознание моделируется как непрерывный рекурсивный процесс: система наблюдает за своим поведением (интроспекция) и корректирует его (интерцессия) для достижения цели.</span>
+                    <span data-lang="zh">意识被建模为一个连续的递归过程：系统观察其行为（内省）并纠正它（干预）以实现目标。</span>
+                 </p>
+                <div class="bg-white rounded-lg shadow-xl p-6 md:p-8 border border-slate-200">
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-6">
+                        
+                        <div class="base-level-box p-4 rounded-lg text-center w-full md:w-1/3">
+                           <p class="font-semibold text-lg text-[#003f5c]">
+                                <span data-lang="en" class="active">Base-level</span>
+                                <span data-lang="ru">Базовый уровень</span>
+                                <span data-lang="zh">基础层面</span>
+                           </p>
+                           <p class="text-sm text-slate-500 mt-1">
+                                <span data-lang="en" class="active">Performs sensorimotor behavior</span>
+                                <span data-lang="ru">Осуществляет сенсомоторное поведение</span>
+                                <span data-lang="zh">执行感觉运动行为</span>
+                           </p>
+                       </div>
+                        
+                        <div class="flex items-center justify-center w-full md:w-auto">
+                           <div class="text-center px-4">
+                                <p class="text-sm font-medium text-[#7a5195]">
+                                    <span data-lang="en" class="active">Introspection</span>
+                                    <span data-lang="ru">Интроспекция</span>
+                                    <span data-lang="zh">内省</span>
+                                </p>
+                                <p class="text-xs text-slate-400">
+                                    <span data-lang="en" class="active">(State analysis)</span>
+                                    <span data-lang="ru">(Анализ состояния)</span>
+                                    <span data-lang="zh">(状态分析)</span>
+                                </p>
+                                <p class="text-4xl text-[#7a5195] mt-1">&#10230;</p>
+                                <p class="text-xs text-slate-400 mt-1">
+                                    <span data-lang="en" class="active">Implements <br> reverse afferentation</span>
+                                    <span data-lang="ru">Реализация <br> обратной афферентации</span>
+                                    <span data-lang="zh">实现<br>反向传入</span>
+                                </p>
+                           </div>
+                        </div>
+
+                        <div class="meta-level-box bg-slate-50 p-4 rounded-lg text-center w-full md:w-1/3">
+                           <p class="font-semibold text-lg text-[#374c80]">
+                                <span data-lang="en" class="active">Meta-level</span>
+                                <span data-lang="ru">Мета-уровень</span>
+                                <span data-lang="zh">元层面</span>
+                           </p>
+                           <p class="text-sm text-slate-500 mt-1">
+                                <span data-lang="en" class="active">Forms goals and predictions</span>
+                                <span data-lang="ru">Формирует цель и предсказание</span>
+                                <span data-lang="zh">形成目标和预测</span>
+                           </p>
+                       </div>
+
+                       <div class="flex flex-col items-center justify-center w-full md:w-auto pt-4 md:pt-0">
+                            <div class="text-4xl text-[#ef5675] transform md:-rotate-90">&#10149;</div>
+                            <div class="text-center py-2 md:py-0 md:px-4">
+                                <p class="text-sm font-medium text-[#ef5675]">
+                                    <span data-lang="en" class="active">Intercession</span>
+                                    <span data-lang="ru">Интерцессия</span>
+                                    <span data-lang="zh">干预</span>
+                                </p>
+                                <p class="text-xs text-slate-400">
+                                    <span data-lang="en" class="active">(Behavior correction)</span>
+                                    <span data-lang="ru">(Коррекция поведения)</span>
+                                    <span data-lang="zh">(行为修正)</span>
+                                </p>
+                            </div>
+                       </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="formalisms" class="mb-20">
+                <h2 class="text-2xl font-bold text-center mb-10 text-slate-800">
+                    <span data-lang="en" class="active">Formal Tools for Metacognition</span>
+                    <span data-lang="ru">Формальные инструменты метапознания</span>
+                    <span data-lang="zh">元认知的形式化工具</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center border border-slate-200">
+                        <h3 class="text-xl font-semibold text-[#003f5c] mb-2">
+                            <span data-lang="en" class="active">Higher-Order Logic (HOL)</span>
+                            <span data-lang="ru">Логика высшего порядка (HOL)</span>
+                            <span data-lang="zh">高阶逻辑 (HOL)</span>
+                        </h3>
+                        <p class="text-slate-500 mb-4 text-sm">
+                            <span data-lang="en" class="active">Allows the system to reason about its own strategies and algorithms, not just objects.</span>
+                            <span data-lang="ru">Позволяет системе рассуждать о собственных стратегиях и алгоритмах, а не только об объектах.</span>
+                            <span data-lang="zh">允许系统对其自身的策略和算法进行推理，而不仅仅是对象。</span>
+                        </p>
+                        <div class="chart-container">
+                            <canvas id="holChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center border border-slate-200">
+                        <h3 class="text-xl font-semibold text-[#003f5c] mb-2">
+                            <span data-lang="en" class="active">Quantitative Type Theory (QTT)</span>
+                            <span data-lang="ru">Количественная теория типов (QTT)</span>
+                            <span data-lang="zh">定量类型理论 (QTT)</span>
+                        </h3>
+                        <p class="text-slate-500 mb-4 text-sm">
+                            <span data-lang="en" class="active">Models the limited nature of cognitive resources, formalizing the "spotlight" of attention.</span>
+                            <span data-lang="ru">Моделирует ограниченность когнитивных ресурсов, формализуя механизм «прожектора» внимания.</span>
+                            <span data-lang="zh">模拟认知资源的有限性，形式化注意力的“聚光灯”机制。</span>
+                        </p>
+                        <div class="chart-container">
+                            <canvas id="qttChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+        
+        <footer class="text-center mt-16 py-8 border-t border-slate-200">
+            <div class="text-base text-slate-600 leading-relaxed">
+                <p class="font-semibold text-lg">Steven Alber</p>
+                <p class="mt-1">KRYONIS SOVEREIGN SYSTEMS</p>
+                <p class="mt-4">
+                    <span data-lang="en" class="active">International Scientific Conference</span>
+                    <span data-lang="ru">Международная научная конференция</span>
+                    <span data-lang="zh">国际科学会议</span>
+                </p>
+                <p>
+                    <span data-lang="en" class="active">Consciousness and Artificial <span class="whitespace-nowrap">Intelligence 2025</span></span>
+                    <span data-lang="ru">Сознание и Искусственный <span class="whitespace-nowrap">Интеллект 2025</span></span>
+                    <span data-lang="zh">意识与人工智能 <span class="whitespace-nowrap">2025</span></span>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartData = {
+                hol: {
+                    en: {
+                        labels: ['Reasoning about objects', ['Reasoning about', 'functions & processes']],
+                        tooltip: 'Logical Scope'
+                    },
+                    ru: {
+                        labels: ['Рассуждения об объектах', ['Рассуждения о', 'функциях и процессах']],
+                        tooltip: 'Логический охват'
+                    },
+                    zh: {
+                        labels: ['关于对象的推理', ['关于功能与', '过程的推理']],
+                        tooltip: '逻辑范围'
+                    }
+                },
+                qtt: {
+                    en: {
+                        labels: ['Automatic Processing', 'Conscious Attention'],
+                        tooltip: 'Cognitive Resource Budget'
+                    },
+                    ru: {
+                        labels: ['Автоматическая обработка', 'Сознательное внимание'],
+                        tooltip: 'Бюджет когнитивных ресурсов'
+                    },
+                    zh: {
+                        labels: ['自动处理', '有意识的注意'],
+                        tooltip: '认知资源预算'
+                    }
+                }
+            };
+            
+            let holChart, qttChart;
+
+            const tooltipTitleCallback = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            };
+
+            const chartColors = {
+                darkBlue: '#003f5c',
+                midBlue: '#374c80',
+                pink: '#ef5675',
+                orange: '#ffa600',
+                white: '#f8fafc'
+            };
+            
+            function createCharts(lang) {
+                const holChartCtx = document.getElementById('holChart').getContext('2d');
+                holChart = new Chart(holChartCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: chartData.hol[lang].labels,
+                        datasets: [{
+                            label: chartData.hol[lang].tooltip,
+                            data: [30, 70],
+                            backgroundColor: [chartColors.midBlue, chartColors.pink],
+                            borderColor: chartColors.white,
+                            borderWidth: 6,
+                            hoverOffset: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { ...tooltipTitleCallback.plugins, legend: { display: false } },
+                        cutout: '65%'
+                    }
+                });
+
+                const qttChartCtx = document.getElementById('qttChart').getContext('2d');
+                qttChart = new Chart(qttChartCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: chartData.qtt[lang].labels,
+                        datasets: [{
+                            label: chartData.qtt[lang].tooltip,
+                            data: [85, 15],
+                            backgroundColor: [chartColors.darkBlue, chartColors.orange],
+                            borderColor: chartColors.white,
+                            borderWidth: 6,
+                            hoverOffset: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { ...tooltipTitleCallback.plugins, legend: { display: false } },
+                        cutout: '65%'
+                    }
+                });
+            }
+
+            function updateCharts(lang) {
+                if (!holChart || !qttChart) return;
+                holChart.data.labels = chartData.hol[lang].labels;
+                holChart.data.datasets[0].label = chartData.hol[lang].tooltip;
+                holChart.update();
+
+                qttChart.data.labels = chartData.qtt[lang].labels;
+                qttChart.data.datasets[0].label = chartData.qtt[lang].tooltip;
+                qttChart.update();
+            }
+
+            const switcher = document.getElementById('language-switcher');
+            const buttons = switcher.querySelectorAll('.lang-btn');
+            
+            const allLangElementsSelector = '[data-lang], [data-lang-inline], [data-lang-flex], [data-lang-grid]';
+
+            function setLanguage(lang) {
+                document.querySelectorAll(allLangElementsSelector).forEach(el => {
+                    el.classList.remove('active');
+                });
+                
+                const activeLangSelector = `[data-lang="${lang}"], [data-lang-inline="${lang}"], [data-lang-flex="${lang}"], [data-lang-grid="${lang}"]`;
+                document.querySelectorAll(activeLangSelector).forEach(el => {
+                    el.classList.add('active');
+                });
+
+                updateCharts(lang);
+            }
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetLang = button.getAttribute('data-target-lang');
+                    
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    setLanguage(targetLang);
+                });
+            });
+
+            // Initial setup
+            const initialLang = 'en';
+            createCharts(initialLang);
+            setLanguage(initialLang);
+            document.querySelector(`.lang-btn[data-target-lang="${initialLang}"]`).classList.add('active');
+
+        });
+    </script>
+</body>
+</html>
